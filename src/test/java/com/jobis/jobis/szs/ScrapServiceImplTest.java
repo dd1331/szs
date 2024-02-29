@@ -2,34 +2,21 @@ package com.jobis.jobis.szs;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.web.client.RestTemplate;
 
-//@SpringBootTest
+@SpringBootTest
 public class ScrapServiceImplTest {
 
-    @Mock
-    private RestTemplate restTemplate;
 
-//    @Autowired
-//    private ScrapService scrapService;
+    @Autowired
+    private ScrapService scrapService;
 
-    @BeforeEach
-    public void setUp() {
-        MockitoAnnotations.openMocks(this);
-//        scrapService = new ScrapServiceImpl(restTemplate);
-    }
 
     @Test
     public void testScrap() {
-//
-
-//        scrapService.scrap2();
+        scrapService.scrap();
     }
 
     @Test

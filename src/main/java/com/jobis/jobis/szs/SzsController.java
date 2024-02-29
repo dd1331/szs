@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 public class SzsController {
 
     private final JwtAuthService jwtAuthService;
+    private final ScrapService scrapService;
 
     @PostMapping("/signup")
     public ResponseEntity<SignupResponse> signup(@RequestBody SignupRequest dto) {
@@ -31,7 +32,7 @@ public class SzsController {
 
     @PostMapping("/test")
     public ResponseEntity<String> login2() {
-
+        scrapService.scrap();
         return ResponseEntity.ok("dd");
     }
 }
