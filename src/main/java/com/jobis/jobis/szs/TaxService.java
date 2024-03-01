@@ -11,13 +11,14 @@ public class TaxService {
 
     private final TaxInfoRepository taxInfoRepository;
     private final UserRepository userRepository;
+    private final TaxCalculator taxCalculator;
      FinalTaxResponse getFinalTax(String userId) {
 
              User user = userRepository.findByUserId(userId).orElseThrow();
 
              TaxInfo taxInfo = taxInfoRepository.findByUserIdAndTaxYear(user.getId(), Year.now().getValue()).orElseThrow();
 
-             BigDecimal taxableIncome = TaxCalculator.calculateTax(taxInfo.get종합소득금액().subtract(taxInfo.get소득공제()));
+             BigDecimal taxableIncome = taxCalculator.calculateTax(taxInfo.get종합소득금액().subtract(taxInfo.get소득공제()));
              BigDecimal finalTax = taxableIncome.subtract(taxInfo.get세액공제());
 
              DecimalFormat decimalFormat = new DecimalFormat("###,###");

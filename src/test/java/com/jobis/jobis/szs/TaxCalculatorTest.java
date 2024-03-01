@@ -23,7 +23,7 @@ public class TaxCalculatorTest {
     private void testCalculateTax(String taxableIncomeStr, String expectedTaxStr) {
         BigDecimal taxableIncome = new BigDecimal(taxableIncomeStr.replaceAll(",", ""));
         BigDecimal expectedTax = new BigDecimal(expectedTaxStr.replaceAll(",", ""));
-        BigDecimal actualTax = TaxCalculator.calculateTax(taxableIncome);
+        BigDecimal actualTax = new MyTaxCalculator().calculateTax(taxableIncome);
         assertEquals(expectedTax, actualTax);
     }
 }
