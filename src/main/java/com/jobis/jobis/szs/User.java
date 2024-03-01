@@ -7,6 +7,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.List;
 
 @Data
 @Builder
@@ -20,6 +21,7 @@ public class User implements UserDetails {
     @GeneratedValue()
     private Long id;
 
+    @Column(unique = true)
     private String userId;
 
     private String password;
@@ -28,7 +30,9 @@ public class User implements UserDetails {
 
     private String regNo;
 
-
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ToString.Exclude
+    private List<TaxInfo> taxInfoList;
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;

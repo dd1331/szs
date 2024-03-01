@@ -4,6 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
+
 @RestController()
 @RequestMapping("/szs")
 @RequiredArgsConstructor
@@ -11,6 +13,8 @@ public class SzsController {
 
     private final JwtAuthService jwtAuthService;
     private final UserService userService;
+    private final TaxService taxService;
+    private final ScrapService scrapService;
 
     @PostMapping("/signup")
     public ResponseEntity<SignupResponse> signup(@RequestBody SignupRequest dto) {
@@ -28,9 +32,15 @@ public class SzsController {
         return ResponseEntity.ok(res);
     }
 
-    @PostMapping("/test")
-    public ResponseEntity<String> login2() {
+    @PostMapping("/scrap")
+    public void scrap(@RequestBody ScrapRequest dto, Principal connectedUser) {
+        scrapService.scrap(dto,connectedUser.getName());
+    }
 
-        return ResponseEntity.ok("dd");
+
+    @PostMapping("/refund")
+    public ResponseEntity<FinalTaxResponse> getFinalTax(Principal principal) {
+        FinalTaxResponse res = taxService.getFinalTax(principal.getName());
+        return ResponseEntity.ok(res);
     }
 }
