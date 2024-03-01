@@ -12,9 +12,9 @@ import java.security.Principal;
 public class SzsController {
 
     private final JwtAuthService jwtAuthService;
+    private final ScrapService scrapService;
     private final UserService userService;
     private final TaxService taxService;
-    private final ScrapService scrapService;
 
     @PostMapping("/signup")
     public ResponseEntity<SignupResponse> signup(@RequestBody SignupRequest dto) {

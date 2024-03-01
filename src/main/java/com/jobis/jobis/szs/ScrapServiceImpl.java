@@ -18,6 +18,7 @@ import java.math.BigDecimal;
 import java.time.Year;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @Data
  class DeductionData {
@@ -122,7 +123,11 @@ public class ScrapServiceImpl implements ScrapService {
             if (response.getStatus().equals("fail")) throw new UnauthorizedAccessException("스크랩 실패");
             System.out.println("응답 받음: " + response);
             User user = userRepository.findByUserId(userId).orElseThrow();
+            Optional<TaxInfo> existing = taxInfoRepository.findByUserIdAndTaxYear(user.getId(), Year.now().getValue());
+
             TaxInfo taxInfo = format(response, user);
+
+            existing.ifPresent(info -> taxInfo.setId(info.getId()));
 
             taxInfoRepository.save(taxInfo);
 
