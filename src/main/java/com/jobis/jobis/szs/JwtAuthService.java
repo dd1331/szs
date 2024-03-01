@@ -19,7 +19,13 @@ public class JwtAuthService implements AuthService {
 
     public LoginResponse login(LoginRequest dto) {
         UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(dto.getUserId(), dto.getPassword());
-        authenticationManager.authenticate(authToken);
+
+        try {
+            authenticationManager.authenticate(authToken);
+        } catch (Exception e) {
+            throw new UnauthorizedAccessException("로그인 실패");
+        }
+
         User user = userRepository.findByUserId(dto.getUserId()).orElseThrow();
         String token = jwtService.generateToken(user);
 
@@ -37,7 +43,12 @@ public class JwtAuthService implements AuthService {
         if (existingUser.isPresent()) throw new UnauthorizedAccessException("이미 가입된 아이디입니다");
 
 
-        User user = User.builder().userId(dto.getUserId()).name((dto.getName())).regNo(dto.getRegNo()).password(passwordEncoder.encode(dto.getPassword())).build();
+        User user = User.builder()
+                .userId(dto.getUserId())
+                .name((dto.getName()))
+                .regNo(passwordEncoder.encode(dto.getRegNo()))
+                .password(passwordEncoder.encode(dto.getPassword()))
+                .build();
 
         userRepository.save(user);
 
