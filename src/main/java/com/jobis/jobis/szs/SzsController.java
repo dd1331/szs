@@ -13,12 +13,11 @@ public class SzsController {
 
     private final JwtAuthService jwtAuthService;
     private final ScrapService scrapService;
+    private final UserService userService;
 
     @PostMapping("/signup")
     public ResponseEntity<SignupResponse> signup(@RequestBody SignupRequest dto) {
-        System.out.println("test");
-        System.out.println(dto);
-        SignupResponse res = jwtAuthService.signup(dto);
+        SignupResponse res = userService.signup(dto);
 
         return ResponseEntity.ok(res);
 
