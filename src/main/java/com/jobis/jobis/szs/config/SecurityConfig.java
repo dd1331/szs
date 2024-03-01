@@ -1,4 +1,5 @@
-package com.jobis.jobis.szs;
+package com.jobis.jobis.szs.config;
+import com.jobis.jobis.szs.auth.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

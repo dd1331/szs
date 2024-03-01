@@ -1,8 +1,13 @@
-package com.jobis.jobis.szs;
+package com.jobis.jobis.szs.service;
 
+import com.jobis.jobis.szs.dto.*;
+import com.jobis.jobis.szs.entity.TaxInfo;
+import com.jobis.jobis.szs.entity.User;
+import com.jobis.jobis.szs.exception.UnauthorizedAccessException;
+import com.jobis.jobis.szs.repository.TaxInfoRepository;
+import com.jobis.jobis.szs.repository.UserRepository;
 import io.netty.handler.ssl.SslContextBuilder;
 import io.netty.handler.ssl.util.InsecureTrustManagerFactory;
-import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.client.reactive.ClientHttpConnector;
@@ -18,48 +23,6 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-
-@Data
- class ScrapResponse {
-    private String status;
-    private ScrapData data;
-    private Errors errors;
-
-}
-@Data
-class ScrapData {
-    private int 종합소득금액;
-    private String 이름;
-    private IncomeDeduction 소득공제;
-
-}
-@Data
-class IncomeDeduction {
-    private List<NationalPensionDeduction> 국민연금;
-    private CreditCardDeduction 신용카드소득공제;
-    private String 세액공제;
-
-}
-@Data
-class NationalPensionDeduction {
-    private String 월;
-    private String 공제액;
-
-}
-@Data
-class CreditCardDeduction {
-    private List<Map<String, String>> month;
-    private int year;
-
-}
-@Data
-class Errors {
-    private String code;
-    private String message;
-    private String validations;
-
-}
-
 
 
 @RequiredArgsConstructor

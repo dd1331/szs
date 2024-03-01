@@ -1,4 +1,4 @@
-package com.jobis.jobis.szs;
+package com.jobis.jobis.szs.dto;
 
 
 import io.swagger.v3.oas.annotations.media.Schema;

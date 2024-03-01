@@ -1,4 +1,4 @@
-package com.jobis.jobis.szs;
+package com.jobis.jobis.szs.service;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

@@ -1,5 +1,10 @@
-package com.jobis.jobis.szs;
+package com.jobis.jobis.szs.service;
 
+import com.jobis.jobis.szs.dto.LoginRequest;
+import com.jobis.jobis.szs.dto.LoginResponse;
+import com.jobis.jobis.szs.entity.User;
+import com.jobis.jobis.szs.exception.UnauthorizedAccessException;
+import com.jobis.jobis.szs.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

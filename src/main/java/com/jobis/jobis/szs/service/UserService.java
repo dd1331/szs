@@ -1,5 +1,12 @@
-package com.jobis.jobis.szs;
+package com.jobis.jobis.szs.service;
 
+import com.jobis.jobis.szs.RegistrationValidator;
+import com.jobis.jobis.szs.dto.SignupRequest;
+import com.jobis.jobis.szs.dto.SignupResponse;
+import com.jobis.jobis.szs.entity.User;
+import com.jobis.jobis.szs.exception.UnauthorizedAccessException;
+import com.jobis.jobis.szs.repository.UserRepository;
+import com.jobis.jobis.szs.service.JwtService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

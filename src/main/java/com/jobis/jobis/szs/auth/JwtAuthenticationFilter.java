@@ -1,5 +1,6 @@
-package com.jobis.jobis.szs;
+package com.jobis.jobis.szs.auth;
 
+import com.jobis.jobis.szs.service.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

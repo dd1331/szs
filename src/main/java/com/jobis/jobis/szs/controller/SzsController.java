@@ -1,5 +1,10 @@
-package com.jobis.jobis.szs;
+package com.jobis.jobis.szs.controller;
 
+import com.jobis.jobis.szs.dto.*;
+import com.jobis.jobis.szs.service.JwtAuthService;
+import com.jobis.jobis.szs.service.ScrapService;
+import com.jobis.jobis.szs.service.TaxService;
+import com.jobis.jobis.szs.service.UserService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -40,7 +45,7 @@ public class SzsController {
     }
 
 
-    @PostMapping("/refund")
+    @GetMapping("/refund")
     public ResponseEntity<FinalTaxResponse> getFinalTax(Principal principal) {
         FinalTaxResponse res = taxService.getFinalTax(principal.getName());
         return ResponseEntity.ok(res);

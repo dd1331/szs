@@ -1,4 +1,4 @@
-package com.jobis.jobis.szs;
+package com.jobis.jobis.szs.entity;
 
 
 import jakarta.persistence.*;

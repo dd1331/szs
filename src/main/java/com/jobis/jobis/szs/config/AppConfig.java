@@ -1,5 +1,5 @@
-package com.jobis.jobis.szs;
-import com.jobis.jobis.szs.UserRepository;
+package com.jobis.jobis.szs.config;
+import com.jobis.jobis.szs.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

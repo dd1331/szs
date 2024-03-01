@@ -1,4 +1,4 @@
-package com.jobis.jobis.szs;
+package com.jobis.jobis.szs.config;
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
@@ -16,7 +16,7 @@ public class SwaggerConfig {
                 .version("v1.0.0")
                 .title("API")
                 .description("");
-        SecurityRequirement securityRequirement = new SecurityRequirement().addList(jwt); // 헤더에 토큰 포함
+        SecurityRequirement securityRequirement = new SecurityRequirement().addList(jwt);
         Components components = new Components().addSecuritySchemes(jwt, new SecurityScheme()
                 .name(jwt)
                 .type(SecurityScheme.Type.HTTP)

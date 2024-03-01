@@ -1,4 +1,11 @@
-package com.jobis.jobis.szs;
+package com.jobis.jobis.szs.service;
+
+import com.jobis.jobis.szs.TaxCalculator;
+import com.jobis.jobis.szs.dto.FinalTaxResponse;
+import com.jobis.jobis.szs.entity.TaxInfo;
+import com.jobis.jobis.szs.entity.User;
+import com.jobis.jobis.szs.repository.TaxInfoRepository;
+import com.jobis.jobis.szs.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
@@ -11,7 +18,7 @@ public class TaxService {
     private final TaxInfoRepository taxInfoRepository;
     private final UserRepository userRepository;
     private final TaxCalculator taxCalculator;
-     FinalTaxResponse getFinalTax(String userId) {
+     public FinalTaxResponse getFinalTax(String userId) {
 
              User user = userRepository.findByUserId(userId).orElseThrow();
 

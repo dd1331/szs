@@ -1,5 +1,6 @@
-package com.jobis.jobis.szs;
+package com.jobis.jobis.szs.exception;
 
+import com.jobis.jobis.szs.exception.UnauthorizedAccessException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;

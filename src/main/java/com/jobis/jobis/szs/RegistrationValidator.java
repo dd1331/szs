@@ -1,5 +1,5 @@
 package com.jobis.jobis.szs;
 
-interface RegistrationValidator {
+public interface RegistrationValidator {
     boolean isAllowed(String name, String id);
 }
