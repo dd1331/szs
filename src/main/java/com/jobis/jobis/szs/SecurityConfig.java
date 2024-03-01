@@ -17,13 +17,14 @@ import static org.springframework.security.config.http.SessionCreationPolicy.STA
 @EnableMethodSecurity
 public class SecurityConfig {
 
-    private static final String[] WHITE_LIST_URL = {"/szs/**"};
+    private static final String[] WHITE_LIST_URL = {"/szs/login","/szs/signup","/h2-console/**"};
 
     private final JwtAuthenticationFilter jwtAuthFilter;
     private final AuthenticationProvider authenticationProvider;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http.headers().frameOptions().disable();
         http.csrf(AbstractHttpConfigurer::disable).
             authorizeHttpRequests(req -> req.requestMatchers(WHITE_LIST_URL)
                 .permitAll()

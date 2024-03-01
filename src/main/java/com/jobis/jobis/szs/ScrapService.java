@@ -1,8 +1,8 @@
 package com.jobis.jobis.szs;
 
 public interface ScrapService {
-    public void scrap();
+    public void scrap(ScrapRequest dto, String userId);
 
-    void format(DeductionData jsonData);
+    TaxInfo format(DeductionData jsonData, User user);
 }
 

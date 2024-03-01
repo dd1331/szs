@@ -15,5 +15,4 @@ public class ScrapRequest {
 
     private String regNo;
 
-    // 생성자, 게터, 세터
 }
