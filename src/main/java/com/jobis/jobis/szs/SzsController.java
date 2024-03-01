@@ -1,5 +1,6 @@
 package com.jobis.jobis.szs;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -8,6 +9,7 @@ import java.security.Principal;
 
 @RestController()
 @RequestMapping("/szs")
+@Tag(name = "삼쩜삼", description = "코딩테스트")
 @RequiredArgsConstructor
 public class SzsController {
 

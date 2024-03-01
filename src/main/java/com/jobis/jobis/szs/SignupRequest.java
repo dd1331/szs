@@ -1,18 +1,22 @@
 package com.jobis.jobis.szs;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
 public class SignupRequest {
+    @Schema(example = "testUserId")
     private String userId;
 
+    @Schema(example = "123456789")
     private String password;
 
+    @Schema(example = "동탁")
     private String name;
 
-    // TODO: 이건 유효성 체크 필요?
+    @Schema(example = "921108-1582816")
     private String regNo;
 
 
