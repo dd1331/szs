@@ -1,10 +1,7 @@
 package com.jobis.jobis.szs;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,7 +13,7 @@ import java.util.Collection;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "users")
+@Table(name = "users", indexes = {@Index(name = "idx_userId", columnList = "userId")})
 public class User implements UserDetails {
 
     @Id
@@ -24,8 +21,11 @@ public class User implements UserDetails {
     private Long id;
 
     private String userId;
+
     private String password;
+
     private String name;
+
     private String regNo;
 
 
