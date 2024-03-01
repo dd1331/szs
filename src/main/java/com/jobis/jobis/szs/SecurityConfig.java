@@ -17,8 +17,7 @@ import static org.springframework.security.config.http.SessionCreationPolicy.STA
 @EnableMethodSecurity
 public class SecurityConfig {
 
-    private static final String[] WHITE_LIST_URL = {"/szs/**","/h2-console/**"};
-
+    private static final String[] WHITE_LIST_URL = {"/szs/login","/szs/signup","/h2-console/**"};
 
     private final JwtAuthenticationFilter jwtAuthFilter;
     private final AuthenticationProvider authenticationProvider;

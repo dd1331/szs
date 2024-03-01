@@ -4,6 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
+
 @RestController()
 @RequestMapping("/szs")
 @RequiredArgsConstructor
@@ -28,9 +30,8 @@ public class SzsController {
         return ResponseEntity.ok(res);
     }
 
-    @PostMapping("/test")
-    public ResponseEntity<String> login2() {
-
-        return ResponseEntity.ok("dd");
+    @PostMapping("/scrap")
+    public void scrap(@RequestBody ScrapRequest dto, Principal connectedUser) {
+        scrapService.scrap(dto,connectedUser.getName());
     }
 }
