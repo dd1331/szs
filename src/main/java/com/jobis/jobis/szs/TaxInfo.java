@@ -13,7 +13,8 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "tax_info")
+@Table(name = "tax_info",
+        uniqueConstraints = {@UniqueConstraint(columnNames = {"user_id", "tax_year"})})
 public class TaxInfo {
     @Id
     @GeneratedValue()

@@ -20,13 +20,12 @@ import java.util.List;
 import java.util.Map;
 
 @Data
-class DeductionData {
+ class DeductionData {
     private String status;
     private DeductionDetail data;
     private Errors errors;
 
 }
-
 @Data
 class DeductionDetail {
     private int 종합소득금액;
@@ -34,7 +33,6 @@ class DeductionDetail {
     private IncomeDeduction 소득공제;
 
 }
-
 @Data
 class IncomeDeduction {
     private List<NationalPensionDeduction> 국민연금;
@@ -42,21 +40,18 @@ class IncomeDeduction {
     private String 세액공제;
 
 }
-
 @Data
 class NationalPensionDeduction {
     private String 월;
     private String 공제액;
 
 }
-
 @Data
 class CreditCardDeduction {
     private List<Map<String, String>> month;
     private int year;
 
 }
-
 @Data
 class Errors {
     private String code;
@@ -64,6 +59,7 @@ class Errors {
     private String validations;
 
 }
+
 
 
 @RequiredArgsConstructor
@@ -136,6 +132,8 @@ public class ScrapServiceImpl implements ScrapService {
 
 
     }
+
+
 
 
 }

@@ -14,6 +14,7 @@ public class SzsController {
     private final JwtAuthService jwtAuthService;
     private final ScrapService scrapService;
     private final UserService userService;
+    private final TaxService taxService;
 
     @PostMapping("/signup")
     public ResponseEntity<SignupResponse> signup(@RequestBody SignupRequest dto) {
@@ -34,5 +35,12 @@ public class SzsController {
     @PostMapping("/scrap")
     public void scrap(@RequestBody ScrapRequest dto, Principal connectedUser) {
         scrapService.scrap(dto,connectedUser.getName());
+    }
+
+
+    @PostMapping("/refund")
+    public ResponseEntity<FinalTaxResponse> getFinalTax(Principal principal) {
+        FinalTaxResponse res = taxService.getFinalTax(principal.getName());
+        return ResponseEntity.ok(res);
     }
 }
