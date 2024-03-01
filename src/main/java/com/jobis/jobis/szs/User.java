@@ -21,12 +21,14 @@ public class User implements UserDetails {
     @GeneratedValue()
     private Long id;
 
+    @Column(unique = true)
     private String userId;
     private String password;
     private String name;
     private String regNo;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ToString.Exclude
     private List<TaxInfo> taxInfoList;
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
