@@ -6,6 +6,6 @@ import java.util.Optional;
 
 public interface TaxInfoRepository extends JpaRepository<TaxInfo, Integer> {
 
-    Optional<TaxInfo> findByUserIdAndTaxYear(Long user_id, int taxYear);
+    Optional<TaxInfo> findByUserIdOrderByTaxYearDesc(Long user_id);
 
 }

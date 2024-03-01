@@ -42,7 +42,7 @@ public class MyTaxCalculator implements TaxCalculator {
 
 
 
-    public BigDecimal calculateTax(BigDecimal taxableIncome) {
+    public BigDecimal calculateTaxableIncome(BigDecimal taxableIncome) {
         return IntStream.range(0, THRESHOLDS.length)
                 .filter(i -> taxableIncome.compareTo(THRESHOLDS[i]) <= 0)
                 .mapToObj(i -> {

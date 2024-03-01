@@ -4,5 +4,6 @@ import java.math.BigDecimal;
 
 public interface TaxCalculator
 {
-    public BigDecimal calculateTax(BigDecimal taxableIncome);
+    public BigDecimal calculateTaxableIncome(BigDecimal taxableIncome);
+
 }
